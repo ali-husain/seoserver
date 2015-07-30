@@ -1,6 +1,13 @@
 ### Welcome!
+This is a slightly modified version of the moviepilot seoserver for my purposes.
+
 Seo Server is a command line tool that runs a server that allows GoogleBot (and any other crawlers) to crawl your heavily Javascript built websites. The tool works with very little changes to your server or client side code.
 
+### Pre-requisites
+
+* Install Node.js [Node.js](http://nodejs.org)
+* Phantomjs <br/>
+<code> npm install -g phantomjs</code>
 
 ### Getting started
 * Install [CoffeeScript](http://coffeescript.org/) (if not already) <br/>
@@ -22,7 +29,7 @@ The crawler has three parts:
 
 **lib/phantom-server.js** A small PhantomJS script for fetching the page and returning the response along with the response headers in serialized form. It can be executed via:
 
-<code>phantomjs lib/phantom-server.js http://moviepilot.com/stories</code>
+<code>phantomjs lib/phantom-server.js http://localhost</code>
 
 **lib/seoserver.js** A node express app responsible for accepting the requests from Googlebot, checking if there is a cached version on memcached, otherwise fetching the page via `phantom-server.js`.
 
@@ -32,11 +39,11 @@ You can start it locally with:
 
 And test its output with:
 
-<code>curl -v http://localhost:10300</code>
+<code>curl -v http://localhost:4000</code>
 
 **bin/seoserver** Forever-monitor script, for launching and monitoring the node main process.
 
-<code>bin/seoserver start -p 10300</code>
+<code>node bin/seoserver start</code>
 
 ### Nginx and Varnish configuration examples
 

@@ -1,16 +1,16 @@
 config =
-  host: 'http://moviepilot.com'
-  defaultPort: 10300
+  host: 'localhost'
+  defaultPort: 4000
   memcached:
     enabled: true
-    defaultHost: 'seo-memcache-production'
+    defaultHost: 'localhost'
     defaultPort: 11211
     maxValue: 2097152
     connectRetries: 5
-    key: 'moviepilot.com'
+    key: 'HBA'
   logentries:
     enabled: false
-    token: 'YOUR_LOGENTRIES_TOKEN_HERE'
+    token: 'HBA'
   # By default GET params are being ignored.
   # Add here any params to be included in the
   # request to your server.
